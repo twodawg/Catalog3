@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Catalog1.Models.Product>
+
+@{
+    ViewBag.Title = "ShoppingCart";
+}
+
+<h2>ShoppingCart</h2>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Name)</th>
+        <th>@Html.DisplayNameFor(model => model.Price)</th>
+        <th>@Html.DisplayNameFor(model => model.Quantity)</th>
+    </tr>
+
+    @foreach( Catalog1.Models.Product cartItem in Model )
+    {
+        <tr>
+            <td>@cartItem.Name</td>
+            <td>$@cartItem.Price</td>
+            <td>@cartItem.Quantity</td>
+        </tr>
+    }
+</table>
+Total Price:
+$@ViewBag.PriceTotal
+
